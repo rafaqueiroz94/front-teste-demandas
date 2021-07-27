@@ -1,0 +1,15 @@
+.keepro {
+  display: flex;
+
+  .sidebar {
+    width: 15%;
+
+    app-sidebar {
+      width: 100%;
+    }
+  }
+
+  .router-outlet {
+    width: 85%;
+  }
+}

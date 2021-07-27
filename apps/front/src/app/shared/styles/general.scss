@@ -1,0 +1,43 @@
+@import './mixins';
+@import './colors';
+
+html, body { 
+  height: 100%; 
+  background-color: #E5E5E5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto';
+}
+
+li {
+  list-style: none;
+}
+
+.container{
+  margin: 0 60px;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 40px;
+
+  .back {
+    @include buttonStyle(1px solid #295FF2, #E5E5E5, #295FF2);
+    margin-right: 20px;
+  }
+  
+  .forward {
+    @include buttonStyle(1px solid #295FF2, #295FF2, #F8F8F8);
+  }
+}
+
+
+
+
+

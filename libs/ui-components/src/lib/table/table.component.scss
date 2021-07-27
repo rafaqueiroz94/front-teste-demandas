@@ -1,0 +1,84 @@
+@import 'apps/front/src/app/shared/styles/colors';
+@import 'apps/front/src/app/shared/styles/mixins';
+
+.scroll{
+  display: flex;
+  width: 100%;
+  // height:210px;
+  // border: 13px solid #bed5cd;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  :host ::ng-deep table {
+    width: auto !important;
+  }
+}
+
+#table {
+  .titulos {
+    @include fontContent(16px, 500, 'Encode Sans', #485058);
+  }
+
+  a {
+    display: flex;
+    text-decoration: none;
+    @include fontContent(16px, 400, 'Encode Sans', $light-blue);
+
+    i {
+      margin-right: 5px;
+    }
+  }
+
+  .statusCancelada{
+      
+          background-color: #ff9b9b; 
+          padding: 5px 15px; 
+          color: #FF0000; 
+          font-weight: bold; 
+          font-size: 12px;
+  
+  }
+
+  .statusDevolvida{
+
+          background-color: #e979e3; 
+          padding: 5px 15px; 
+          color: #3a146bf6; 
+          font-weight: bold; 
+          font-size: 12px;
+  
+  }
+
+  .statusEmExecucao{
+
+    background-color: #a5d1a5; 
+    padding: 5px 15px; color: #004400; 
+    font-weight: bold; 
+    font-size: 12px;
+
+  }
+  
+  .statusPendenteLider{
+
+    
+    background-color: #c4bc4b; 
+    padding: 5px 15px; color: #635506; 
+    font-weight: bold; 
+    font-size: 12px;
+
+  }
+
+  .statusEncerrada{
+
+    
+    background-color: #666666; 
+    padding: 5px 15px; 
+    color: #dddddd; 
+    font-weight: bold; 
+    font-size: 12px;
+
+  }
+}

@@ -1,0 +1,5 @@
+@import 'apps/front/src/app/shared/styles/colors';
+@import 'apps/front/src/app/shared/styles/mixins';
+
+// Styling Tabview
+@include tabview();

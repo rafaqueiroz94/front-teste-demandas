@@ -1,0 +1,18 @@
+<everteam-header
+  title="Demandas"
+  subtitle="Colaboradores cadastrados"
+  button="Cadastrar demanda"
+  [show]="state"></everteam-header>
+
+  <!-- posição slider -->
+<div class="container">
+  <p-tabView id="slider">
+    <p-tabPanel header="Demandas cadastradas">
+      <everteam-table
+      [tableData]="tableData"></everteam-table>
+    </p-tabPanel>
+    <p-tabPanel header="Pendências">
+      <p>teste</p>
+    </p-tabPanel>
+  </p-tabView>
+</div>

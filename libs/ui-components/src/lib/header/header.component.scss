@@ -1,0 +1,110 @@
+@import 'apps/front/src/app/shared/styles/colors';
+@import 'apps/front/src/app/shared/styles/mixins';
+
+#header {
+  padding-top: 50px;
+  position: relative;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .title-text {
+      h2 {
+        margin-bottom: 5px;
+      }
+
+      .bold {
+        @include fontContent(32px, 600, 'Encode Sans');
+      }
+  
+      .light {
+        @include fontContent(30px, 400, 'Encode Sans');
+        margin-right: 5px;
+      }
+
+      span {
+        @include fontContent(32px, 600, $black);
+        text-decoration: none;
+      }
+    }
+    
+    .icons {
+      width: 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      i {
+        font-size: 20px;
+        color: $light-blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .position {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .header-subcontent {
+    margin-bottom: 20px;
+
+    h3 {
+      @include fontContent(24px, 400, 'Encode Sans');
+    }
+    
+    h4 {
+      @include fontContent(24px, 400, 'Encode Sans');
+      margin-top: 20px;
+      margin-bottom: 10px;
+      
+    }
+    
+    p {
+      @include fontContent(16px, 400, 'Encode Sans', #666E7E);
+    }
+    
+    a {
+      display: flex;
+      align-items: center;
+      @include button($light-blue, $light-blue);
+      text-decoration: none;
+
+      p {
+        @include fontContent(14px, 500, "Roboto", $light-blue);
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .template {
+    margin-bottom: 40px;
+    
+    a {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        margin-right: 10px;
+      }
+  
+      h4 {
+        @include fontContent(14px, 500, "Roboto", $orange);
+      }
+    }
+  }
+
+}
+
+// Primeng Classes with ng-deep
+:host ::ng-deep .p-button.p-button-outlined {
+  font-size: 16px;
+  color: $light-blue;
+  border: 1px solid $light-blue;
+  margin-bottom: 20px;
+}

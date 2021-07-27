@@ -1,0 +1,88 @@
+@mixin button($color, $borderColor) {
+  color: $color;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+@mixin fontContent($size, $weight, $family: "", $color: "") {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+  color: $color;
+}
+
+@mixin buttonStyle($border, $background, $color) {
+  border: $border;
+  background-color: $background;
+  color: $color;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+
+@mixin tabview() {
+  :host ::ng-deep .p-tabview-nav {
+    background: transparent;
+  }
+  
+  :host ::ng-deep .p-tabview .p-tabview-nav {
+    border-bottom: 1px solid #DCDCDC;
+  }
+  
+  :host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link.p-ripple {
+    background: transparent;
+    border-color: $light-blue;
+    @include fontContent(16px, 400, 'roboto', $light-blue);
+  }
+  
+  :host ::ng-deep .p-tabview-nav-link.p-ripple[aria-selected=false] {
+    background: transparent;
+    @include fontContent(16px, 400, 'roboto', #B7BCC6);
+    border-color: #B7BCC6;
+  }
+  
+  :host ::ng-deep .p-tabview-nav-link.p-ripple:hover {
+    background: transparent;
+  }
+  
+  :host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    background: transparent;
+    @include fontContent(16px, 400, 'roboto', #B7BCC6);
+  }
+  
+  // :host ::ng-deep #p-tabpanel-0-label.p-tabview-nav-link.p-ripple[aria-controls=p-tabpanel-0],
+  // :host ::ng-deep #p-tabpanel-0-label.p-tabview-nav-link.p-ripple[aria-controls=p-tabpanel-0]:hover,
+  // :host ::ng-deep #p-tabpanel-1-label.p-tabview-nav-link.p-ripple[aria-controls=p-tabpanel-1],
+  // :host ::ng-deep #p-tabpanel-1-label.p-tabview-nav-link.p-ripple[aria-controls=p-tabpanel-1]:hover {
+  //   background: transparent;
+  // }
+  
+  :host ::ng-deep #p-tabpanel-1-label.p-tabview-nav-link.p-ripple[aria-controls=p-tabpanel-1] {
+    font-weight: 400;
+  }
+  
+  :host ::ng-deep .p-tabview-nav {
+    margin-bottom: 40px;
+  }
+  
+  :host ::ng-deep .p-tabview-panels {
+    padding: 0;
+  }
+  
+  .p-tabview-panels #p-tabpanel-4.p-tabview-panel.ng-star-inserted {
+    background: transparent;
+  }
+  
+  :host ::ng-deep .p-tabview .p-tabview-panels {
+    background: transparent;
+  }
+  
+  :host ::ng-deep #slider .p-tabview-nav-link.p-ripple:hover {
+    background: transparent;
+  }
+}

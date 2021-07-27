@@ -1,0 +1,72 @@
+<div style="position: fixed; color: white; margin: 10px 0px 0px 30px;">
+  <a (click)="btnToggle=!btnToggle"><i class="pi pi-align-justify"></i></a>
+</div>
+
+<div id="sidebar" *ngIf="btnToggle">
+  <div class="profile-information">
+    <div class="logo-content">
+      
+      <img class="logo" src="./assets/images/logo.svg" alt="">
+      <img class="text-logo" src="./assets/images/text-logo.svg" alt="">
+    </div>
+  
+    <div class="profile">
+      <img src="./assets/images/imguspin3.png" alt="">
+    </div>
+    
+    <h1>Olá, Gustavo Naruto Uzumaki</h1>
+    
+    <div class="exit">
+      <i class="pi pi-sign-out route-types, exit-logo"></i>
+      <p>Sair</p>
+    </div>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="menu-sidebar">
+
+    <div class="item" [routerLinkActive]="styleActive">
+      <a [ngClass]="{ activated: styleActive == 'active' }" routerLink="dashboard" >
+        <i class="pi pi-chart-bar route-types"></i>
+        <p>Dashboard</p>
+        <i class="pi pi-angle-right arrow" *ngIf="styleActive == 'active'"></i>
+      </a>
+    </div>
+
+    <div class="item" [routerLinkActive]="styleActive">
+      <a [ngClass]="{ activated: styleActive == 'active' }" routerLink="colaboradores" >
+        <i class="pi pi-user route-types"></i>
+        <p>Colaboradores</p>
+        <i class="pi pi-angle-right arrow" *ngIf="styleActive == 'active'"></i>
+      </a>
+    </div>
+
+    <div class="item" [routerLinkActive]="styleActive">
+      <a [ngClass]="{ activated: styleActive == 'active' }" routerLink="demandas" >
+        <i class="pi pi-sitemap route-types"></i>
+        <p>Demandas</p>
+        <i class="pi pi-angle-right arrow" *ngIf="styleActive == 'active'"></i>
+      </a>
+    </div>
+
+    <div class="item" [routerLinkActive]="styleActive">
+      <a [ngClass]="{ activated: styleActive == 'active' }" routerLink="projetos" >
+        <i class="pi pi-briefcase route-types"></i>
+        <p>Projetos (EXT)</p>
+        <i class="pi pi-angle-right arrow" *ngIf="styleActive == 'active'"></i>
+      </a>
+    </div>
+
+    
+    <div class="item" [routerLinkActive]="styleActive">
+      <a [ngClass]="{ activated: styleActive == 'active' }" routerLink="cio" >
+        <i class="pi pi-folder route-types"></i>
+        <p>CIO</p>
+        <i class="pi pi-angle-right arrow" *ngIf="styleActive == 'active'"></i>
+      </a>
+    </div>
+    
+  </div>  
+
+</div>

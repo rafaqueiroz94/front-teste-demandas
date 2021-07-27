@@ -1,0 +1,49 @@
+<div id="table" class="scroll">
+  <p-table [value]="tableData" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+
+      <ng-template pTemplate="header">
+        <tr class="titulos">
+          <th pSortableColumn="pre">PRE<p-sortIcon field="pre"></p-sortIcon></th>
+          <th pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon></th>
+          <th pSortableColumn="comunidade">Comunidade<p-sortIcon field="comunidade"></p-sortIcon></th>
+          <th pSortableColumn="executivo">Executivo a faturar<p-sortIcon field="executivo"></p-sortIcon></th>
+          <th pSortableColumn="responsavel">Responsável<p-sortIcon field="responsavel"></p-sortIcon></th>
+          <th></th> 
+
+        </tr>
+      </ng-template>
+      <ng-template 
+        pTemplate="body" 
+        ngFor
+        let-item
+        [ngForOf]="tableData">
+        <tr>
+          <td> {{item.pre}} </td>
+          <td>
+            <label class="statusCancelada" *ngIf="item.status == 'CANCELADA'" >{{item.status}} </label>
+            <label class="statusDevolvida" *ngIf="item.status == 'DEVOLVIDA'" >{{item.status}} </label>
+            <label class="statusEmExecucao" *ngIf="item.status == 'EM EXECUÇÃO'" >{{item.status}} </label>
+            <label class="statusPendenteLider" *ngIf="item.status == 'PENDENTE LIDER'" >{{item.status}} </label>
+            <label class="statusEncerrada" *ngIf="item.status == 'ENCERRADA'" >{{item.status}} </label>
+          </td> 
+
+          <td> {{item.comunidade}} </td>
+          <td> {{item.executivo}} </td>
+          <td> {{item.responsavel}} </td>
+          <td> 
+            <a [routerLink]="['', item.id]">
+              <i class="pi pi-cog"></i>
+              <p>Gerenciar</p>
+            </a>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+  </p-table>
+</div>

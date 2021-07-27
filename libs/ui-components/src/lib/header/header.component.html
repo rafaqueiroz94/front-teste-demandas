@@ -1,0 +1,44 @@
+<div id="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="title-text">
+        <h2 [ngClass]="{ bold: show, light: !show }"> {{ title }} </h2>
+        <p *ngIf="!show">{{ subtitle }} > {{ title }}</p>
+      </div>
+
+      <div class="icons">
+        
+        <i class="pi pi-search" ></i> 
+        <i class="pi pi-bell"></i>
+      </div>
+    </div>
+
+    <div class="header-subcontent" [ngClass]="{ block: !show }">
+      <div *ngIf="show" [ngClass]="{ position: show }">
+        <button icon="pi pi-user-edit" pButton type="button" [routerLink]="['../../../../demands-create-edit/demands-create-edit.component.ts']" routerLinkActive="router-link-active" [label]="button" class="p-button-outlined"></button>
+      </div>
+
+
+      <p *ngIf="!show">Informe os dados abaixo ou faça o upload do template com os dados informados.</p>
+    </div>
+
+    <p-toast position="top-center" key="tc"></p-toast>
+
+    <div *ngIf="!show" class="template">
+      <a>
+        <img src="" alt="">
+        <h4>Baixar template</h4>
+      </a>
+    </div>
+  </div>
+
+  <!-- <everteam-badge-notification 
+    *ngIf="hideAndShow"
+    [counterBadge]="counterBadge"></everteam-badge-notification> -->
+</div>
+
+
+    
+
+
+
