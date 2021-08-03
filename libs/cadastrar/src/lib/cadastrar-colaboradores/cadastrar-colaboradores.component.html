@@ -1,0 +1,131 @@
+<p-toast></p-toast>
+<form [formGroup]="formCadastro" class="form-module">
+<label class="titulo-cadastro form-espaco"> Colaboradores / <label class="sub-cadastro"> Cadastro de Colaborador </label> </label>
+<br> <br>
+<label class="emcima-informe form-espaco"> Cadastrar Colaboradores </label> <br>
+<label class="informe form-espaco"> Informe os dados abaixo ou faça o upload do template com os dados informados. </label>
+<div>
+    <label>
+        <button class="pi pi-download form-espaco btnbaixartemp">
+            Baixar Template
+        </button>
+    </label>
+</div>
+
+<div class="form-espaco abas" style="margin-top: 56px;" >
+    <div>
+        <a class="registerLinkActive" [routerLink]="['/cadastro']"> Cadastrar online </a>
+        <a class="registerLinkDisabled" [routerLink]="['/cadastro/cadastrolote']"> Cadastro em lote </a>
+    </div>
+    <hr class="hrUp">
+    
+  </div>
+<p class="form-espaco"> Dados de contratação </p>
+
+<div class="form-espaco row-align">
+    <div>
+        <input formControlName="nome" class="caixa-form testeeee" type="text" pInputText placeholder="Nome do colaborador" />
+    </div>
+    <div>
+        <input formControlName="sobrenome" class="caixa-form" type="text" pInputText placeholder="Sobrenome do colaborador" />
+    </div>
+    <div>
+        <input formControlName="CPF" mask="000.000.000-99" class="caixa-form" type="text"  pInputText placeholder="CPF" />
+    </div>
+</div>
+<div class="form-espaco row-align" style="margin-top: 20px;">
+    <div>
+        <input formControlName="telefone" mask="(00)-999999999" class="caixa-form" type="text" pInputText  placeholder="Telefone" />
+    </div>
+    <div>
+        <input formControlName="dt_admissao" mask="00-00-9999" class="caixa-form" type="text" pInputText  placeholder="Data de admissão" />
+    </div>
+    <div>
+            <p-dropdown formControlName="matriz" class="drop-down" [options]="this.Matriz" Label="Matriz"></p-dropdown>
+    </div>
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <p-dropdown formControlName="tp_contratacao" class="drop-down" [options]="this.tp_contratacao" Label="Tipo de contratação"></p-dropdown>
+    </label>
+    <label>
+        <p-dropdown formControlName="un_negocio" class="drop-down" [options]="this.un_negocio" Label="Unidade de negócio"></p-dropdown>
+    </label>
+    <label>
+        <p-dropdown formControlName="tp_atuacao" class="drop-down" [options]="this.tp_atuacao" Label="Tipo de atuação"></p-dropdown>
+    </label>
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <input formControlName="sap" class="caixa-form" type="text" pInputText placeholder="Matrícula SAP" />
+        <input formControlName="RACF" class="caixa-form" type="text" pInputText placeholder="RACF" />
+        <input formControlName="funcional" class="caixa-form" type="text" pInputText placeholder="Funcional" />
+    </label>
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <input formControlName="CSR" class="caixa-form" type="text" pInputText placeholder="CSR" />
+    </label>
+</div>
+    <br> <br>
+
+<div class="form-espaco" style="margin-top: 25px;">
+    <label> Endereço do colaborador </label> 
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <input formControlName="logadouro" class="ruaPA" type="text" pInputText placeholder="Rua, Praça, Avenida" />
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <input formControlName="numero" class="numero" type="text" pInputText placeholder="Número" />
+        <input formControlName="complemento" class="numero" type="text" pInputText placeholder="Complemento" />
+        <input formControlName="bairro" class="bairro" type="text" pInputText placeholder="Bairro" />
+    </label>
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <p-dropdown formControlName="cidade" class="drop-down" [options]="this.cidade" Label="Cidade"> </p-dropdown>
+    </label>
+    <label>
+        <p-dropdown formControlName="UF" class="drop-down" [options]="this.Estado" Label="Estado"> </p-dropdown>
+    </label>
+</div>
+<br> <br>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label> Perfil do colaborador </label>
+    <br>
+    <label>
+        <p-dropdown formControlName="perfil" class="drop-down" [options]="this.perfil" Label="Perfil"></p-dropdown>
+    </label>
+</div>
+<br> <br>
+<div class="form-espaco">
+    <label> Dados do projeto </label>
+</div>
+<div class="form-espaco" >    
+    <label>
+        <input formControlName="nome_lider" class="caixa-form" type="text" pInputText placeholder="Nome do líder" />
+    </label>
+    <label>
+        <input formControlName="sobrenome_lider" class="caixa-form" type="text" pInputText placeholder="Sobrenome do líder" />
+    </label>
+    <label>
+        <input formControlName="EXT_projeto" class="caixa-form" type="text" pInputText placeholder="EXT do projeto" />
+    </label>
+</div>
+<div class="form-espaco" style="margin-top: 20px;">
+    <label>
+        <input formControlName="nome_projeto" class="caixa-form" type="text" pInputText placeholder="Nome do projeto" />
+    </label>
+    <label>
+        <input formControlName="PRE" class="caixa-form" type="text" pInputText placeholder="PRE" />
+    </label>
+    <label>
+        <input formControlName="ARE" class="caixa-form" type="text" pInputText placeholder="ARE" />
+    </label>
+</div>
+</form>
+<div class="form-espaco voltarcadastrar">
+    <button pButton type="button" class="p-button-outlined caixa-form voltarbtn" [routerLink]="['/colaboradores']"> Voltar </button>
+    <button pButton type="button" class="p-button-outlined caixa-form cadastrarbtn" (click) = "btnCadastro()" [disabled]="!formCadastro.valid" > Cadastrar </button>
+    </div>

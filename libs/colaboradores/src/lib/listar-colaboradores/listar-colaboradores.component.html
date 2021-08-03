@@ -1,0 +1,43 @@
+<p-toast></p-toast>
+<label class="titulo-principal"> Colaboradores </label>
+<div class="card"router>
+    <div>
+        <label class="sub-titulo"> Colaboradores cadastrados </label>
+        <span style="margin-left: 1000px;"> 
+            <button pButton type="button" class="p-button-outlined botao-cadastrar" [routerLink]="['/cadastro']"> Cadastrar Colaboradores </button> 
+        </span>
+        
+    </div>
+    <br>
+    
+    <p-table [value]="colaboradores" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="SAP"  class="titulos">Matrícula SAP <p-sortIcon field="SAP"></p-sortIcon></th>
+                <th pSortableColumn="nome"  class="titulos">Nome do Colaborador <p-sortIcon field="nome"></p-sortIcon></th>
+                <th pSortableColumn="nome_projeto"  class="titulos">Nome do Projeto <p-sortIcon field="nome_projeto"></p-sortIcon></th>
+                <th pSortableColumn="EXT_projeto"  class="titulos">Código EXT <p-sortIcon field="EXT_projeto"></p-sortIcon></th>
+                <th pSortableColumn="status"  class="titulos">Status <p-sortIcon field="status"></p-sortIcon></th>
+                <th pSortableColumn="status"  class="titulos">Ações <p-sortIcon field="status"></p-sortIcon></th>
+              
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-colaboradores>
+            <tr>
+                <td> {{colaboradores.sap}} </td>
+                <td> {{colaboradores.nome}} </td>
+                <td> {{colaboradores.nome_projeto}} </td>
+                <td> {{colaboradores.EXT_projeto}} </td>
+                <td> {{colaboradores.status}} </td>
+                <td> <button class="pi pi-pencil btngerenciar" [routerLink]="['/colaboradores/gerenciar/', colaboradores.id]"> Gerenciar </button> </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>

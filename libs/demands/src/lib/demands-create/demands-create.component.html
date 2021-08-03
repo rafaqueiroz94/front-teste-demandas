@@ -1,0 +1,289 @@
+<div *ngIf="setPageTitle() == 'create' ">
+  <everteam-header 
+    title="Cadastrar nova demanda"
+    subtitle="Demanda"
+    button="Cadastrar demandas"
+    (clickEvent)="sendToRoute()"
+    [show]="state">
+  </everteam-header>
+</div>
+
+<p-toast position="top-right"></p-toast>
+
+<div class="form">
+  <div class="container">
+    <!-- posição slider -->
+    <p-tabView id="slider">
+      <p-tabPanel header="Cadastrar Online">
+        <div class="form-flow">
+          <div 
+            class="flow-content" 
+            *ngFor="let item of bulletsContent">
+            <div [ngClass]="{ blue: item.bulletsControl, grey: !item.bulletsControl }">
+              <div class="line"></div>
+              <div class="circle">{{ item.number }}</div>
+              <p>{{ item.name }}</p>
+            </div>
+          </div>
+        </div>
+    
+        <div *ngIf="demandStep == 1">
+          <div class="demand">
+            <div class="demand-first-content">
+              <h2>Dados da demanda</h2>
+              <button (click)="callDialogCleanForm()" pButton icon="pi pi-trash" type="button" label="Limpar dados" class="p-button clean"></button>
+            </div>
+            
+           
+            <form [formGroup]="formDemand">
+              <ul formGroupName="demands_data">
+                <li *ngFor="let item of demandsArray">
+                  <div *ngIf="item.tag == 'input' ">
+                    <p>{{ item.label }}</p>
+                    <input [ngClass]="validationStyle('demands_data', item.control)" [formControlName]="item.control" type="text" pInputText />
+                    <small *ngIf="validatingForm('demands_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                  </div>
+      
+                  <div *ngIf="item.tag == 'select' ">
+                    <p>{{ item.label }}</p>
+                    <p-dropdown [ngClass]="validationStyle('demands_data', item.control, item.tag)" [options]="item.options" [placeholder]="item.placeholder" optionLabel="value" [formControlName]="item.control"></p-dropdown>
+                    <small *ngIf="validatingForm('demands_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                  </div>
+      
+                  <div *ngIf="item.tag == 'calendar' ">
+                    <p>{{ item.label }}</p>
+                    <p-calendar [ngClass]="validationStyle('demands_data', item.control, item.tag)" dateFormat="dd/mm/yy" [formControlName]="item.control" [showIcon]="true"></p-calendar>
+                    <small *ngIf="validatingForm('demands_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                  </div>
+      
+                  <div *ngIf="item.tag == 'textarea' ">
+                    <p>{{ item.label }}</p>
+                    <textarea style="max-width: 415px;" [ngClass]="validationStyle('demands_data', item.control, item.tag)" [formControlName]="item.control" pInputTextarea></textarea>
+                    <small *ngIf="validatingForm('demands_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                  </div>
+                </li>
+              </ul>
+            </form>
+            <!-- <div class="formnew" >
+                <p> Descrição da PRE</p>
+                  <textarea [cols]="100" pInputTextarea></textarea>             
+              
+            </div> -->
+
+
+            <div class="demand-upload">
+              <h2>Anexos e observações</h2>
+              <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+                multiple="multiple" accept="image/*" maxFileSize="10000000">
+                              
+                <ng-template pTemplate="content">
+                  <div >
+                  <button (click)="abrirImagem()" pButton type="button" label="Visualizar" class="p-button-link"></button>
+                  </div>      
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    
+                  </ul>
+                </ng-template>
+              </p-fileUpload>
+            </div>
+          </div>
+        </div>
+        
+    
+        <div *ngIf="demandStep == 2">
+          <div class="allocation">
+            <div class="allocation-first-content">
+              <h2>Dados de alocação</h2>
+              <div class="button-alignment">
+                <button (click)="callDialogDeleteAre()" pButton type="button" icon="pi pi-trash" iconPos="right" label="Excluir ARE" class="p-button-outlined"></button>
+                <button (click)="addNewAllocation()" pButton type="button" icon="pi pi-plus" iconPos="right" label="Nova ARE" class="p-button allocation"></button>
+              </div>
+            </div>
+    
+            <form [formGroup]="formDemand">
+              <div formGroupName="allocation_data">
+                <div class="card" *ngFor="let value of getControls(); let i = index;" [formGroup]="value">
+                  <div class="alignment">
+                    <div class="checkbox">
+                      <label for="binary">Selecionar</label>
+                      <p-checkbox binary="true" formControlName="checkbox"></p-checkbox>
+                    </div>
+                  </div>
+      
+                  <ul>
+                    <li *ngFor="let item of allocationArray">
+                      <div *ngIf="item.tag == 'input' "> 
+                        <p>{{ item.label }}</p>
+                        <input [ngClass]="validationStyle('allocation_data', item.control)" [formControlName]="item.control" type="text" pInputText />
+                        <small *ngIf="validatingForm('allocation_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                      </div> 
+          
+                      <div *ngIf="item.tag == 'calendar' ">
+                        <p>{{ item.label }}</p>
+                        <p-calendar [ngClass]="validationStyle('allocation_data', item.control, item.tag)" dateFormat="dd/mm/yy" [formControlName]="item.control" [showIcon]="true"></p-calendar>
+                        <small *ngIf="validatingForm('allocation_data', item.control)" class="p-error">{{ item.label }} é obrigatório.</small>
+                      </div> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div *ngIf="demandStep == 3">
+          <div class="resume">
+            <h2>Dados da demanda</h2>
+    
+            <ul>
+              <li>
+                <p>PRE</p>
+                <h3>{{ formDemand.get('demands_data').get('pre').value }}</h3>
+              </li>
+              <li></li>
+              <li></li>
+              <li>
+                <p>Aberto em</p>
+                <h3>{{ formDemand.get('demands_data').get('open_in').value | date: 'dd/MM/yyyy' }}</h3>
+              </li>
+              <li>
+                <p>Aberto por</p>
+                <h3>{{ formDemand.get('demands_data').get('open_by').value }}</h3>
+              </li>
+              <li> 
+                <p>Responsável</p>
+                <h3>{{ formDemand.get('demands_data').get('responsible').value }}</h3>
+              </li>
+              <li> 
+                <p>Comunidade</p>
+                <h3>{{ formDemand.get('demands_data').get('community').value.value }}</h3>
+              </li>
+              <li> 
+                <p>Release Train - RT</p>
+                <h3>{{ formDemand.get('demands_data').get('release_train').value }}</h3>
+              </li>
+              <li> 
+                <p>Squad</p>
+                <h3>{{ formDemand.get('demands_data').get('squad').value }}</h3>
+              </li>
+              <li> 
+                <p>Classificação</p>
+                <h3>{{ formDemand.get('demands_data').get('classification').value.value }}</h3>
+              </li>
+              <li> 
+                <p>Empresa</p>
+                <h3>{{ formDemand.get('demands_data').get('company').value }}</h3>
+              </li>
+              <li> 
+                <p>Ponto Focal Outsourcing</p>
+                <h3>{{ formDemand.get('demands_data').get('focal_point_outsourcing').value }}</h3>
+              </li>
+              <li> 
+                <p>Início do Pedido</p>
+                <h3>{{ formDemand.get('demands_data').get('start_request').value | date: 'dd/MM/yyyy' }}</h3>
+              </li>
+              <li> 
+                <p>Término do Pedido</p>
+                <h3>{{ formDemand.get('demands_data').get('end_request').value | date: 'dd/MM/yyyy' }}</h3>
+              </li>
+              <li> 
+                <p>Total de Horas</p>
+                <h3>{{ formDemand.get('demands_data').get('total_hours').value }}</h3>
+              </li>
+              <li> 
+                <p>Ponto Focal Everis</p>
+                <h3>{{ formDemand.get('demands_data').get('focal_point_everis').value }}</h3>
+              </li>
+              <li> 
+                <p>Líder Everis</p>
+                <h3>{{ formDemand.get('demands_data').get('everis_leader').value }}</h3>
+              </li>
+              <li> 
+                <p>Executivo a Faturar</p>
+                <h3>{{ formDemand.get('demands_data').get('executive_to_bill').value }}</h3>
+              </li>
+              <li> 
+                <p>Descrição da PRE</p>
+                <h3>{{ formDemand.get('demands_data').get('pre_description').value }}</h3>
+              </li>
+            </ul>
+    
+            <div class="card" *ngFor="let item of formDemand.value.allocation_data">
+              <ul>
+                <li>
+                  <p>ARE Mãe</p>
+                  <h3>{{ item.are_mother }}</h3>
+                </li>
+                <li>
+                  <p>ARE Filha</p>
+                  <h3>{{ item.are_daughter }}</h3>
+                </li>
+                <li>
+                  <p>Perfil</p>
+                  <h3>{{ item.profile }}</h3>
+                </li>
+                <li>
+                  <p>Iniício da Alocação</p>
+                  <h3>{{ item.start_allocation | date: 'dd/MM/yyyy' }}</h3>
+                </li>
+                <li>
+                  <p>Término da Alocação</p>
+                  <h3>{{ item.end_allocation | date: 'dd/MM/yyyy' }}</h3>
+                </li>
+                <li>
+                  <p>Horas Planejadas</p>
+                  <h3>{{ item.planned_hours }}</h3>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="demand-upload">
+              <h2>Anexos e observações</h2>
+              <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+                multiple="multiple" accept="image/*" maxFileSize="10000000">
+                <ng-template pTemplate="content">
+
+                  <button (click)="abrirImagem()" pButton type="button" label="Visualizar" class="p-button-link"></button>
+                  <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                  </ul>
+                </ng-template>
+              </p-fileUpload>
+            </div>
+          </div>
+        </div>
+    
+        <div class="control-screens">
+          <div class="buttons-control">
+            <button (click)="backToScreen()" pButton type="button" label="Voltar" class="p-button-outlined"></button>
+    
+            <button *ngIf="demandStep == 1" (click)="forwardToScreen()" pButton  type="button" label="Prosseguir" class="p-button-outlined"></button>
+            <button *ngIf="demandStep == 2" (click)="forwardToScreen()" pButton  type="button" label="Prosseguir" class="p-button-outlined"></button>
+            <button *ngIf="demandStep == 3" (click)="submitForm()" pButton  type="button" label="Concluir cadastro" icon="pi pi-check" iconPos="right" class="p-button save"></button>
+          </div>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Cadastrar em Lote">
+        <p>teste</p>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>
+
+<div *ngIf="cleanForm">
+  <everteam-dialog
+    message="Você realmente deseja LIMPAR os dados inseridos?"
+    (buttonLogic)="cleanFormDemand()"
+    (closeModal)="closeModal()"></everteam-dialog>
+</div>
+<div *ngIf="deleteAre">
+  <everteam-dialog
+    message="Você realmente deseja excluir ARE?"
+    (buttonLogic)="deleteNewAllocation()"
+    (closeModal)="closeModal()"></everteam-dialog>
+</div>
+
+<!-- [disabled]="!formDemand.controls.demands_data.valid"  -->
+<!-- [disabled]="!formDemand.controls.allocation_data.valid" -->
+

@@ -21,7 +21,7 @@ export class DemandsListComponent implements OnInit {
   populateDemands() {
     this.tableData = this.demandsService.getDemandas();
 
-   
   }
+  sendToRoute() { }
 
 }

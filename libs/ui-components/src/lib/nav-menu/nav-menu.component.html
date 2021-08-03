@@ -1,0 +1,23 @@
+<div class="container-menu">
+    <div class="menu-icon">
+        <i class="pi pi-sign-in" style="font-size: 16px; margin-right: 45px;"></i>
+    </div>
+    <div class="menu-home {{activedMenuHome}}" (click)="activeMenuHome()" [routerLink]="['/']">
+        <i class="pi pi-home" style="font-size: 16px" ></i><p> Dashboard </p>
+    </div>
+    <div class="menu-oportunidades {{activedMenuOportunidades}}"  [routerLink]="['/colaboradores']">
+        <i class="pi pi-folder-open" style="font-size: 16px"></i><p> Colaboradores </p>
+    </div>
+    <div class="menu-vagas {{activedMenuVagas}}"  [routerLink]="['/demandas']">
+        <i class="pi pi-file" style="font-size: 16px"></i><p> Demandas </p>
+    </div>
+    <div class="menu-modulos" (click)="toggle()" [routerLink]="['/modulos']">
+        <i class="pi pi-key" style="font-size: 16px"></i><p> Projetos (EXT) </p>
+    </div>
+    <div class="menu-funcoes" [routerLink]="['/funcoes']">
+        <i class="pi pi-bookmark" style="font-size: 16px"></i><p> CIO </p>
+    </div>
+    <!-- <div class="menu-funcoes" [routerLink]="['/log']">
+        <i class="pi pi-bookmark" style="font-size: 16px"></i><p>Log</p>
+    </div> -->
+</div>

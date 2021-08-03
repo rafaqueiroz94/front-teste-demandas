@@ -1,0 +1,114 @@
+.titulo-cadastro {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: flex-end;
+    color: #295FF2;
+}
+
+.sub-cadastro {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    color: #010E30;
+}
+
+.emcima-informe {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #010E30;
+} 
+
+.informe {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #666E7E;
+}
+
+:host ::ng-deep .caixa-form {
+    margin-right: 16px;
+    width: 318px;
+    height: 50px;
+}
+
+:host ::ng-deep .drop-down {
+    margin-right: 18px;
+    width: 318px;
+    height: 50px;
+}
+
+.form-espaco {
+    margin-left: 97px;
+}
+
+.row-align {
+    flex-direction: row;
+    display: flex;
+}
+
+:host ::ng-deep .dados-projeto {
+    background: rgba(0, 0, 0, 0.12);
+    opacity: 0.5;
+}
+
+:host ::ng-deep .voltarbtn {
+    border: 1px solid #295FF2;
+    color: #295FF2;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 160px;
+    height: 44px;
+    text-align: center;
+}
+
+:host ::ng-deep .cadastrarbtn {
+    border: 1px solid #295FF2;
+    background-color: #295FF2;
+    color: #F8F8F8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 160px;
+    height: 44px;
+    margin-left: 32px;
+}
+
+:host ::ng-deep .voltarcadastrar {
+    margin-top: 30px;
+}
+
+:host ::ng-deep .btnbaixartemp {
+    background-color: white;
+    color: #ED850E;
+    border: none;
+    margin-top: 20px;
+}
+
+:host ::ng-deep .numero {
+    width: 242px;
+    height: 54px;
+    margin-right: 20px;
+}
+
+:host ::ng-deep .bairro {
+    height: 54px;
+    width: 471px;
+}
+
+:host ::ng-deep .ruaPA {
+    height: 54px;
+    width: 991px;
+}
+
+:host ::ng-deep .p-dropdown {
+    width: 318px;
+    height: 50px;
+}

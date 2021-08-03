@@ -161,32 +161,8 @@
           }
         }
       }
-    },
-    "dashboard": {
-      "projectType": "library",
-      "root": "libs/dashboard",
-      "sourceRoot": "libs/dashboard/src",
-      "prefix": "ever-team",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/dashboard/src/**/*.ts",
-              "libs/dashboard/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/dashboard/src/test.ts",
-            "tsConfig": "libs/dashboard/tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js"
-          }
-        }
-      }
     }
+
   },
   "cli": {
     "defaultCollection": "@nrwl/angular"

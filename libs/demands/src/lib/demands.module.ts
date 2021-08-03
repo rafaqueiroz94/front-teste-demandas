@@ -1,3 +1,5 @@
+import { CalendarModule } from 'primeng/calendar';
+import { DemandsCreateComponent } from './demands-create/demands-create.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +12,7 @@ import { MessageService } from 'primeng/api';
 
 import { DemandsListComponent } from './demands-list/demands-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -19,13 +22,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    PrimengModule
+    PrimengModule,
+    ToastModule,
+    CalendarModule
   ],
   declarations: [
-    DemandsListComponent
+    DemandsListComponent,
+    DemandsCreateComponent
   ],
   exports: [
-    DemandsListComponent
+    DemandsListComponent,
+    DemandsCreateComponent
   ],
   providers: [
     MessageService,

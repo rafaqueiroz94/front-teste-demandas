@@ -1,0 +1,185 @@
+<p-toast></p-toast>
+<!--   TESTE MOSTRAR DADOS    -->
+
+<!-- <input type="text" value={{colaboradores.sap}}>
+<p>
+    {{colaboradores.nome}}
+</p>
+<p>
+    {{colaboradores.sap}}
+</p>
+<p>
+    {{colaboradores.id}}
+</p>
+<p>
+    {{colaboradores.EXT_projeto}}
+</p>
+<p>
+    {{colaboradores.nome_projeto}}
+</p>
+<p>
+    {{colaboradores.perfil}}
+</p> -->
+
+<!-- FIM CAMPOS DE TESTE -->
+
+
+
+<form class="form-module"  [formGroup]="formCadastro"  #f="ngForm">
+    <label class="titulo-cadastro form-espaco"> Colaboradores / <label class="sub-cadastro"> Gerenciamento de Colaborador </label> </label>
+    <br> <br>
+    <label class="emcima-informe form-espaco"> Editar Colaboradores </label> <br>
+    
+    <!-- USAR NA FRENTE DA CLASSE NO SCSS = :host ::ng-deep -->
+    <!-- PARA GUARDAR A VARIAVEL [(ngModel)]="NOME_VARIAVEL"  -->
+    <p class="form-espaco"> Dados de contratação </p>
+    
+    <div class="form-espaco row-align">
+        <div>  
+            <p> Nome do colaborador </p>
+            <input type="text" value="{{colaboradores.nome}}" formControlName="nome" class="caixa-form" minlength="3" pInputText>
+        </div>
+        <div>
+            <p> Sobrenome do colaborador </p>        
+            <input type="text" value="{{colaboradores.sobrenome}}" formControlName="sobrenome" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> CPF </p>
+            <input type="text" value="{{colaboradores.CPF}}" formControlName="CPF" mask="000.000.000-99" class="caixa-form" pInputText>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Telefone do colaborador </p>
+            <input type="text" value="{{colaboradores.telefone}}" formControlName="telefone" mask="(00)-999999999" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Data de admissão </p>
+            <input type="text" value="{{colaboradores.dt_admissao}}" formControlName="dt_admissao" mask="00-00-9999" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Matriz </p>
+            <p-dropdown formControlName="matriz" class="drop-down" [options]="this.Matriz" Label="Matriz"></p-dropdown>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Tipo de contratação </p>
+            <p-dropdown formControlName="tp_contratacao" class="drop-down" [options]="this.tp_contratacao" Label="Tipo de contratação"></p-dropdown>
+        </div>
+        <div>
+            <p> Unidade de negócio </p>
+            <p-dropdown formControlName="un_negocio" class="drop-down" [options]="this.un_negocio" Label="Unidade de negócio"></p-dropdown>
+        </div>
+        <div>
+            <p> Tipo de atuação </p>
+            <p-dropdown formControlName="tp_atuacao" class="drop-down" [options]="this.tp_atuacao" Label="Tipo de atuação"></p-dropdown>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> SAP </p>
+            <input type="text" value="{{colaboradores.sap}}" formControlName="sap" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> RACF </p>
+            <input type="text" value="{{colaboradores.RACF}}" formControlName="RACF" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Funcional </p>
+            <input type="text" value="{{colaboradores.funcional}}" formControlName="funcional" class="caixa-form" pInputText>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> CSR </p>
+            <input type="text" value="{{colaboradores.CSR}}" formControlName="CSR" class="caixa-form" pInputText>
+        </div>
+    </div>
+        <br> <br>
+    
+    <div class="form-espaco" style="margin-top: 25px;">
+        <label> Endereço do colaborador </label> 
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Logadouro </p>
+            <input type="text" value="{{colaboradores.logadouro}}" formControlName="logadouro" class="caixa-form" pInputText>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Numero </p>
+            <input type="text" value="{{colaboradores.numero}}" formControlName="numero" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Complemento </p>
+            <input type="text" value="{{colaboradores.complemento}}" formControlName="complemento" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Bairro </p>
+            <input type="text" value="{{colaboradores.bairro}}" formControlName="bairro" class="caixa-form" pInputText>
+        </div>     
+    </div>
+
+    <div class="form-espaco row-align">
+        <div>
+            <p> Cidade </p>
+            <p-dropdown formControlName="cidade" class="drop-down" [options]="this.cidade" Label="Cidade"> </p-dropdown>
+        </div>
+        <div>
+            <p> UF </p>
+            <p-dropdown formControlName="UF" class="drop-down" [options]="this.Estado" Label="Estado"> </p-dropdown>
+        </div>
+    </div>
+
+    <br> <br>
+    
+    <div class="form-espaco" style="margin-top: 20px;">
+        <label> Perfil do colaborador </label>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Perfil </p>
+            <p-dropdown formControlName="perfil" class="drop-down" [options]="this.perfil" Label="Perfil"></p-dropdown>
+        </div>
+    </div>
+    
+    <br> <br>
+    <div class="form-espaco">
+        <label> Dados do projeto </label>
+    </div>
+    <div class="form-espaco row-align">    
+        <div>
+            <p> Nome do Lider </p>
+            <input type="text" value="{{colaboradores.nome_lider}}" formControlName="nome_lider" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Sobrenome do Lider </p>
+            <input type="text" value="{{colaboradores.sobrenome_lider}}" formControlName="sobrenome_lider" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> Ext do Projeto </p>
+            <input type="text" value="{{colaboradores.EXT_projeto}}" formControlName="EXT_projeto" class="caixa-form" pInputText>
+        </div>
+    </div>
+    <div class="form-espaco row-align">
+        <div>
+            <p> Nome do Projeto </p>
+            <input type="text" value="{{colaboradores.nome_projeto}}" formControlName="nome_projeto" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> PRE </p>
+            <input type="text" value="{{colaboradores.PRE}}" formControlName="PRE" class="caixa-form" pInputText>
+        </div>
+        <div>
+            <p> ARE </p>
+            <input type="text" value="{{colaboradores.ARE}}" formControlName="ARE" class="caixa-form" pInputText>
+        </div>
+    </div> 
+    <div class="form-espaco voltarcadastrar">
+        <button pButton type="button" class="p-button-outlined caixa-form voltarbtn" [routerLink]="['/colaboradores']"> Voltar </button>
+        <button pButton type="button" class="p-button-outlined caixa-form cadastrarbtn" (click)="btnSalvar()"> Salvar </button>
+        </div>
+    </form>
+

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -98,6 +99,18 @@ export class DemandsService {
 
   getDemandas() {
     return this.data;
+  }
+
+  getDemandsById() {
+    
+  }
+
+  updateDemands() {
+    
+  }
+
+  saveDemands(body: any): Observable<any> {
+    return this.http.post<any>('https://localhost:44360/', body);
   }
 
 }

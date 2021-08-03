@@ -82,3 +82,7 @@
 
   }
 }
+
+:host ::ng-deep .p-paginator-current{
+  display: none;
+}

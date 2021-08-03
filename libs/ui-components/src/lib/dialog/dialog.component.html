@@ -1,0 +1,12 @@
+<section id="dialog">
+  <div class="dialog-message">
+    <i class="pi pi-exclamation-triangle"></i>
+    <p>{{ message }}</p>
+    <div class="buttons-dialog">
+      <button (click)="onClickButton()" pButton type="button" label="Sim" class="p-button-outlined clean"></button>
+      <button (click)="clickEvent()" pButton type="button" label="Não" class="p-button close"></button>
+    </div>
+    <i (click)="clickEvent()" class="pi pi-times"></i>
+  </div>
+</section>
+

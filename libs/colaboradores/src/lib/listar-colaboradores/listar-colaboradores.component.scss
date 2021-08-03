@@ -1,0 +1,214 @@
+.titulos {
+    font-family: Encode Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #010E30;
+}
+
+.titulo-principal {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: #010E30;
+}
+
+.sub-titulo {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #010E30;
+}
+
+.botao-cadastrar {
+    border: 1px solid #295FF2;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+:host ::ng-deep .btngerenciar {
+    background: #FFFFFF;
+    border: none;
+}
+
+//classes do toast
+:host ::ng-deep {
+    .p-toast-message-custom {
+        background: #6C1297;
+        border-radius: 4px;
+        border-width: 0 0 0 6px;
+        color: #2c1e30;
+    }
+
+    .p-toast-icon-close {
+        color: #fff;
+    }
+
+    .p-toast-top-right {
+        width: 80% !important;
+    }
+
+        .p-toast {
+
+            width: 87% !important;
+    
+            opacity: 1;
+    
+            height: 60px;
+    
+    
+    
+            @media (min-width: 2561px) {
+    
+                width: 92% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 2560px) {
+    
+                width: 91% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 2435px) {
+    
+                width: 90% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 2222px) {
+    
+                width: 88% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1830px) {
+    
+                width: 87% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1631px) {
+    
+                width: 85% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1395px) {
+    
+                width: 83% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1283px) {
+    
+                width: 82% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1224px) {
+    
+                width: 81% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1140px) {
+    
+                width: 80% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 1070px) {
+    
+                width: 79% !important;
+    
+            }
+    
+    
+    
+            @media (max-width: 994px) {
+    
+                width: 75% !important;
+    
+            }
+    
+    
+    
+        }
+
+    .p-toast .p-toast-message .p-toast-message-content {
+        align-items: center;
+    }
+
+    .p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+        color: #FFFFFF;
+        font-size: 16px;
+        letter-spacing: 0.1px;
+        font-weight: bold;
+    }
+
+    .p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
+        display: inline-flex;
+    }
+
+    .p-toast .p-toast-message .p-toast-message-content .p-toast-detail {
+        margin: 0;
+        color: #FFFFFF;
+        font-size: 16px;
+        letter-spacing: 0.1px;
+        margin-left: 10px;
+    }
+
+    .p-toast .p-toast-message.p-toast-message-success {
+        background: #36A303;
+        border-radius: 4px;
+        border-width: 0 0 0 6px;
+        border: none;
+    }
+
+    .p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,
+    .p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
+        color: #fff;
+    }
+
+    .pi-check:before {
+        display: none;
+    }
+
+}
+
+:host ::ng-deep .pi-fw,
+.p-datatable .p-sortable-column .p-column-title,
+.p-datatable .p-sortable-column .p-sortable-column-badge,
+.p-datatable .p-sortable-column .p-sortable-column-icon {
+    font-size: 10px;
+}
+
+:host ::ng-deep .pi-sort-alt:before {
+    color: #323232;
+    font-size: 10px;
+}

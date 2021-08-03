@@ -1,0 +1,17 @@
+<section id="badge-notification">
+  <div class="title">
+    <div class="alignment">
+      <p>Notificações</p>
+      <img src="assets/images/cross-black.svg" alt="">
+    </div>
+  </div>
+  <div class="notification" *ngFor="let item of counterBadge">
+    <div class="alignment" *ngIf="hideNotification">
+      <h6>{{ item.date }}, às {{ item.time }}</h6>
+      <h3>Colaborador vinculado à demanda</h3>
+      <h4><span>{{ item.name }}</span> foi vinculado ao projeto {{ item.project_name }}, de {{ item.project_ext }}...</h4>
+      <a>Ler Mais</a>
+      <img (click)="deleteNotification()" src="assets/images/trash-grey.svg" alt="">
+    </div>
+  </div>
+</section>

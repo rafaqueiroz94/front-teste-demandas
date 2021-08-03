@@ -1,7 +1,8 @@
 <everteam-header
   title="Demandas"
   subtitle="Colaboradores cadastrados"
-  button="Cadastrar demanda"
+  button="Cadastrar demanda" 
+  (clickEvent)="sendToRoute()"
   [show]="state"></everteam-header>
 
   <!-- posição slider -->
@@ -9,7 +10,8 @@
   <p-tabView id="slider">
     <p-tabPanel header="Demandas cadastradas">
       <everteam-table
-      [tableData]="tableData"></everteam-table>
+      [tableData]="tableData">
+      </everteam-table>
     </p-tabPanel>
     <p-tabPanel header="Pendências">
       <p>teste</p>

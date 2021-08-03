@@ -1,0 +1,39 @@
+.container-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // max-width: 250px;
+    width: 180px;
+    height: 974px;
+    background: #010E30;
+    color: #F8F8F8;
+    
+}
+.menu-icon{
+    width: 180px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 0;
+    border-bottom: 1px solid #c0c0c0;
+}
+.menu-icon i{
+    margin:10px 20px
+}
+.menu-home, .menu-oportunidades, .menu-vagas, .menu-modulos, .menu-funcoes{
+    width:250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.menu-home i, .menu-oportunidades i, .menu-vagas i, .menu-modulos i, .menu-funcoes i {
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+
+.activeMenu{
+    background-color: #c1c944;
+}

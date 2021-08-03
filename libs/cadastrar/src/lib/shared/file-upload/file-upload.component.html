@@ -1,0 +1,79 @@
+<p-toast></p-toast>
+<table class="form-espaco margintop">
+  <thead>
+    <tr class="trFlex">
+      <p class="itemHead">Arquivo</p>
+      <p class="itemHead">Peso</p>
+      <p class="itemHead">Data</p>
+    </tr>
+  </thead>
+  <tbody class="bodyStyle">
+    <tr *ngFor="let file of fileToUpload" class="trFlex">
+      
+      <p class="item">{{ file.name }}</p>
+      <p class="item">{{ file.size }}</p>
+      <p class="item dataItem">{{ file.lastModifiedDate | date: "dd/MM/yyyy" }}</p>
+      <td class="itemDelete">
+        
+        <i class="pi pi-trash trashIcon"></i><p (click)="delete()">Excluir</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="form-espaco margintop">
+  <input type="file" id="file" #inputFile accept=".xls ,.xlsx" (change)="fileSelect($event)" style="display: none" />
+  <div *ngIf="haveFile == false">
+    <label class="noFile" for="file">Nenhum arquivo foi anexado.</label>
+
+    <div class="form-espaco voltarcadastrar">
+       <button onclick="document.getElementById('file').click()" pButton type="button" class="p-button-outlined caixa-form btn-padrao ">
+      <i class="pi pi-cloud-upload"></i>Fazer Upload
+    </button> 
+    </div>
+  </div>
+</div>
+
+
+<div class="form-espaco margintop">
+  <div>
+      <p class="stepsTitle">Passo a Passo</p>
+  </div>
+  <div class="steps" >
+    <div>
+      <p>
+        1.<a class="baixetemp" href="../../assets/template.xls">Baixe o template </a>disponível;</p>
+    </div>
+    <div>
+      <p> 2. Complete com as informações de acordo com o template; </p>
+    </div>
+    <div>
+      <p> 3. Suba o arquivo no formato “*.xls”. </p>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+
+<div class="form-espaco voltarcadastrar">
+  <div class="margintop abas customWidth" >
+    <hr class="hrDown">
+  </div>
+<div style="display: flex;">
+
+
+  <div>
+    <button pButton type="button" class="p-button-outlined caixa-form voltarbtn" [routerLink]="['/colaboradores']">
+      Voltar
+    </button>
+  </div>
+
+  <div >
+    <button (click)="sendUpload()" [disabled]="!cadastrarBoolean" pButton type="button" class="p-button-outlined caixa-form voltarbtn">
+      <i class="pi pi-cloud-upload"></i>Cadastrar
+    </button>
+  </div>
+</div>
+</div>
